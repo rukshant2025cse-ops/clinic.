@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAAFI Unani Multispeciality Clinic & Cupping Therapy Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark: #0d3320;
+  --green-mid: #1a5c38;
+  --green-light: #2e8b57;
+  --gold: #c9963a;
+  --gold-light: #e4b96a;
+  --cream: #fdf8f0;
+  --cream-dark: #f4ead8;
+  --text-dark: #1a1a1a;
+  --text-mid: #4a4a4a;
+  --text-light: #888;
+  --white: #ffffff;
+  --shadow: 0 4px 24px rgba(13,51,32,0.12);
+  --shadow-hover: 0 8px 40px rgba(13,51,32,0.2);
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(13,51,32,0.97);backdrop-filter:blur(12px);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px;box-shadow:0 2px 20px rgba(0,0,0,0.3)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-icon{width:42px;height:42px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;color:var(--green-dark);flex-shrink:0}
+.nav-logo-text{color:var(--white);font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;line-height:1.2;letter-spacing:0.3px}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:0.5px;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.cart-btn{position:relative;background:var(--gold);color:var(--green-dark);border:none;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:6px;transition:background 0.2s}
+.cart-btn:hover{background:var(--gold-light)}
+.cart-count{background:var(--green-dark);color:var(--white);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:26px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;width:100%;background:var(--green-dark);padding:20px 5%;z-index:999;flex-direction:column;gap:0}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:rgba(255,255,255,0.9);text-decoration:none;font-size:15px;font-weight:600;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.1)}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--green-dark) 0%,var(--green-mid) 50%,#1a4a2e 100%);display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+.hero-bg-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);background-size:20px 20px}
+.hero-content{max-width:600px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,150,58,0.2);border:1px solid rgba(201,150,58,0.4);color:var(--gold-light);padding:6px 16px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);line-height:1.15;font-weight:700;margin-bottom:8px}
+.hero h1 span{color:var(--gold-light);display:block}
+.hero-sub{font-size:clamp(0.9rem,2vw,1.1rem);color:rgba(255,255,255,0.75);margin:18px 0 32px;line-height:1.7;font-weight:300}
+.hero-address{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,0.7);font-size:13px;margin-bottom:36px;line-height:1.6}
+.hero-address svg{flex-shrink:0;margin-top:2px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--green-dark);border:none;padding:14px 30px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,150,58,0.4)}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.5);padding:13px 28px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light)}
+.hero-image{position:absolute;right:5%;bottom:0;width:min(420px,45%);opacity:0.15}
+.hero-stats{display:flex;gap:32px;margin-top:48px;flex-wrap:wrap}
+.stat{text-align:left}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold-light)}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:1px;text-transform:uppercase}
+
+/* SECTIONS */
+.section{padding:80px 5%}
+.section-tag{display:inline-block;color:var(--green-light);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);color:var(--green-dark);font-weight:700;line-height:1.2;margin-bottom:16px}
+.section-sub{color:var(--text-mid);font-size:15px;line-height:1.7;max-width:560px}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:48px}
+.service-card{background:var(--white);border-radius:var(--radius-lg);padding:32px 28px;box-shadow:var(--shadow);transition:all 0.3s;border:1px solid rgba(13,51,32,0.06)}
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.service-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--green-mid),var(--green-dark));border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px}
+.service-card h3{font-size:1.25rem;color:var(--green-dark);margin-bottom:10px;font-weight:600}
+.service-card p{color:var(--text-mid);font-size:14px;line-height:1.7}
+
+/* SHOP */
+#shop{background:var(--cream-dark)}
+.shop-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;flex-wrap:gap}
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.filter-tab{background:var(--white);color:var(--text-mid);border:1.5px solid rgba(13,51,32,0.12);padding:7px 18px;border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Nunito',sans-serif}
+.filter-tab.active{background:var(--green-dark);color:var(--white);border-color:var(--green-dark)}
+.add-product-btn{background:var(--green-mid);color:var(--white);border:none;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:6px;transition:background 0.2s}
+.add-product-btn:hover{background:var(--green-dark)}
+
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;margin-top:8px}
+.product-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);transition:all 0.3s;border:1px solid rgba(13,51,32,0.06);display:flex;flex-direction:column}
+.product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.product-img-wrap{height:200px;overflow:hidden;position:relative;background:var(--cream-dark)}
+.product-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.product-card:hover .product-img-wrap img{transform:scale(1.05)}
+.product-badge{position:absolute;top:12px;left:12px;background:var(--green-dark);color:var(--white);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:0.5px}
+.product-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.product-cat{font-size:11px;font-weight:700;color:var(--green-light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.product-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--green-dark);font-weight:600;margin-bottom:8px;line-height:1.3}
+.product-desc-short{color:var(--text-mid);font-size:13px;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;border-top:1px solid rgba(13,51,32,0.07)}
+.product-price{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--green-dark)}
+.product-price span{font-size:0.85rem;font-weight:400;color:var(--text-light)}
+.product-actions{display:flex;gap:8px}
+.btn-details{background:transparent;color:var(--green-mid);border:1.5px solid var(--green-mid);padding:7px 14px;border-radius:50px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s}
+.btn-details:hover{background:var(--green-mid);color:var(--white)}
+.btn-add-cart{background:var(--gold);color:var(--green-dark);border:none;padding:8px 16px;border-radius:50px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s}
+.btn-add-cart:hover{background:var(--gold-light)}
+.no-products{text-align:center;padding:60px 20px;color:var(--text-mid)}
+.no-products p{font-size:15px;margin-top:12px}
+
+/* MODAL BASE */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:2000;overflow-y:auto;padding:20px}
+.overlay.open{display:flex;align-items:flex-start;justify-content:center}
+.modal{background:var(--white);border-radius:var(--radius-lg);max-width:640px;width:100%;margin:auto;position:relative;overflow:hidden;animation:modalIn 0.3s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.07);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:1;transition:background 0.2s}
+.modal-close:hover{background:rgba(0,0,0,0.14)}
+
+/* PRODUCT DETAIL MODAL */
+.product-modal-img{width:100%;height:260px;object-fit:cover}
+.product-modal-body{padding:28px}
+.product-modal-cat{font-size:11px;font-weight:700;color:var(--green-light);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.product-modal-name{font-size:1.9rem;color:var(--green-dark);font-weight:700;margin-bottom:14px}
+.product-modal-price{font-size:1.5rem;color:var(--gold);font-weight:700;margin-bottom:20px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.detail-item label{display:block;font-size:11px;font-weight:700;color:var(--green-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.detail-item p{font-size:14px;color:var(--text-dark);line-height:1.6}
+.full-desc{margin-bottom:24px}
+.full-desc label{display:block;font-size:11px;font-weight:700;color:var(--green-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.full-desc p{font-size:14px;color:var(--text-mid);line-height:1.8}
+.modal-cart-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.qty-control{display:flex;align-items:center;border:1.5px solid rgba(13,51,32,0.2);border-radius:50px;overflow:hidden}
+.qty-control button{background:none;border:none;width:36px;height:36px;font-size:18px;cursor:pointer;color:var(--green-dark);font-weight:700;transition:background 0.2s}
+.qty-control button:hover{background:var(--cream)}
+.qty-control span{width:36px;text-align:center;font-weight:700;font-size:15px}
+
+/* ADD PRODUCT MODAL */
+.add-modal-header{background:var(--green-dark);padding:28px;color:var(--white)}
+.add-modal-header h2{font-size:1.6rem;font-weight:700;color:var(--white)}
+.add-modal-header p{color:rgba(255,255,255,0.7);font-size:13px;margin-top:6px}
+.add-modal-body{padding:28px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:12px;font-weight:700;color:var(--text-mid);letter-spacing:0.5px;margin-bottom:6px;text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border:1.5px solid rgba(13,51,32,0.15);border-radius:10px;font-size:14px;font-family:'Nunito',sans-serif;color:var(--text-dark);background:var(--cream);transition:border-color 0.2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green-mid)}
+.form-group textarea{height:90px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.img-upload-area{border:2px dashed rgba(13,51,32,0.25);border-radius:12px;padding:28px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--cream);position:relative}
+.img-upload-area:hover{border-color:var(--green-mid);background:rgba(30,92,56,0.04)}
+.img-upload-area input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.img-preview{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-top:12px;display:none}
+.form-submit{background:var(--green-dark);color:var(--white);border:none;width:100%;padding:14px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;margin-top:8px;transition:background 0.2s}
+.form-submit:hover{background:var(--green-mid)}
+
+/* CART SIDEBAR */
+.cart-sidebar{position:fixed;right:-400px;top:0;width:min(400px,100vw);height:100vh;background:var(--white);z-index:1500;box-shadow:-8px 0 40px rgba(0,0,0,0.2);transition:right 0.35s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column}
+.cart-sidebar.open{right:0}
+.cart-header{background:var(--green-dark);padding:22px 20px;display:flex;align-items:center;justify-content:space-between}
+.cart-header h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);font-weight:700}
+.cart-close{background:rgba(255,255,255,0.1);border:none;color:var(--white);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center}
+.cart-items{flex:1;overflow-y:auto;padding:16px}
+.cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(13,51,32,0.08);align-items:flex-start}
+.cart-item img{width:64px;height:64px;border-radius:10px;object-fit:cover;flex-shrink:0;background:var(--cream-dark)}
+.cart-item-info{flex:1}
+.cart-item-name{font-weight:700;font-size:14px;color:var(--text-dark);margin-bottom:4px}
+.cart-item-price{color:var(--gold);font-weight:700;font-size:15px}
+.cart-item-controls{display:flex;align-items:center;gap:6px;margin-top:8px}
+.qty-sm{display:flex;align-items:center;border:1.5px solid rgba(13,51,32,0.15);border-radius:50px;overflow:hidden}
+.qty-sm button{background:none;border:none;width:28px;height:28px;cursor:pointer;font-size:14px;font-weight:700;color:var(--green-dark)}
+.qty-sm span{width:28px;text-align:center;font-size:13px;font-weight:700}
+.remove-item{background:none;border:none;color:#e74c3c;cursor:pointer;font-size:12px;font-weight:600;margin-left:auto}
+.cart-footer{padding:20px;border-top:1px solid rgba(13,51,32,0.08)}
+.cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cart-total-label{font-size:14px;color:var(--text-mid);font-weight:600}
+.cart-total-amount{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--green-dark)}
+.checkout-btn{background:var(--gold);color:var(--green-dark);border:none;width:100%;padding:14px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s}
+.checkout-btn:hover{background:var(--gold-light)}
+.cart-empty{text-align:center;padding:60px 20px;color:var(--text-light)}
+.cart-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1490}
+.cart-backdrop.open{display:block}
+
+/* ORDER MODAL */
+.order-modal{max-width:560px}
+.order-modal-header{background:var(--green-dark);padding:28px;color:var(--white)}
+.order-modal-header h2{font-size:1.6rem;font-weight:700;color:var(--white)}
+.order-modal-header p{color:rgba(255,255,255,0.7);font-size:13px;margin-top:6px}
+.order-modal-body{padding:28px}
+.order-summary{background:var(--cream);border-radius:12px;padding:16px;margin-bottom:24px}
+.order-item-row{display:flex;justify-content:space-between;font-size:14px;padding:4px 0;color:var(--text-mid)}
+.order-item-row.total{font-weight:700;color:var(--green-dark);font-size:15px;border-top:1px solid rgba(13,51,32,0.1);padding-top:10px;margin-top:6px}
+.success-check{width:64px;height:64px;background:var(--green-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px;color:var(--white)}
+
+/* CONTACT */
+#contact{background:var(--green-dark)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-left .section-tag{color:var(--gold-light)}
+.contact-left .section-title{color:var(--white)}
+.contact-left .section-sub{color:rgba(255,255,255,0.7)}
+.contact-items{margin-top:32px;display:flex;flex-direction:column;gap:20px}
+.contact-item{display:flex;gap:16px;align-items:flex-start}
+.contact-icon{width:44px;height:44px;background:rgba(201,150,58,0.15);border:1px solid rgba(201,150,58,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-item-text h4{color:var(--white);font-size:14px;font-weight:700;margin-bottom:4px}
+.contact-item-text p{color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6}
+.contact-right{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:32px}
+.contact-form-group{margin-bottom:16px}
+.contact-form-group label{display:block;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:0.5px;margin-bottom:6px;text-transform:uppercase}
+.contact-form-group input,.contact-form-group textarea{width:100%;padding:11px 14px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:10px;color:var(--white);font-size:14px;font-family:'Nunito',sans-serif;outline:none;transition:border-color 0.2s}
+.contact-form-group input:focus,.contact-form-group textarea:focus{border-color:var(--gold-light)}
+.contact-form-group input::placeholder,.contact-form-group textarea::placeholder{color:rgba(255,255,255,0.35)}
+.contact-form-group textarea{height:100px;resize:vertical}
+.contact-submit{background:var(--gold);color:var(--green-dark);border:none;width:100%;padding:13px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:background 0.2s}
+.contact-submit:hover{background:var(--gold-light)}
+
+/* FOOTER */
+footer{background:#071a0e;padding:40px 5%;text-align:center}
+footer p{color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:8px}
+footer .footer-brand{font-family:'Cormorant Garamond',serif;color:var(--gold-light);font-size:1.1rem;font-weight:600;margin-bottom:12px}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--green-dark);color:var(--white);padding:12px 24px;border-radius:50px;font-size:14px;font-weight:600;z-index:3000;transition:transform 0.3s;box-shadow:var(--shadow);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ADMIN BADGE */
+.admin-indicator{position:fixed;bottom:80px;right:20px;background:var(--green-dark);color:var(--gold-light);padding:10px 16px;border-radius:50px;font-size:12px;font-weight:700;z-index:900;box-shadow:var(--shadow);cursor:pointer;border:1px solid rgba(201,150,58,0.3);display:none}
+.admin-indicator.visible{display:block}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .contact-inner{grid-template-columns:1fr}
+  .detail-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  nav .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero{padding:90px 5% 60px}
+  .hero-image{display:none}
+  .hero-stats{gap:24px}
+  .section{padding:60px 5%}
+  .form-row{grid-template-columns:1fr}
+  .products-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .product-img-wrap{height:160px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:2rem}
+  .hero-btns{flex-direction:column}
+  .btn-primary,.btn-outline{text-align:center}
+  .products-grid{grid-template-columns:1fr 1fr}
+  .product-actions{flex-direction:column;gap:6px}
+  .btn-details,.btn-add-cart{width:100%;text-align:center;padding:8px}
+  .modal-cart-row{flex-direction:column;align-items:stretch}
+  .modal-cart-row .btn-primary{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-icon">N</div>
+    <div class="nav-logo-text">NAAFI UNANI<br>CLINIC</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#shop" onclick="closeMenu()">Shop</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge">⚕ Unani &amp; Cupping Therapy</div>
+    <h1>NAAFI UNANI<span>Multispeciality Clinic</span></h1>
+    <p class="hero-sub">Ancient healing wisdom, modern care. Specialising in Unani Medicine, Cupping Therapy, and holistic wellness treatments.</p>
+    <div class="hero-address">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <span>123 Old No 59/2, Dr. Ambedkar College Rd, Near P1 Police Station,<br>Opp. CASAGRAND MERCURY, Chennai, Tamil Nadu</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#shop" class="btn-primary">Shop Medicines</a>
+      <a href="#contact" class="btn-outline">Book Appointment</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Patients Treated</div></div>
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Herbal Products</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div>
+    <span class="section-tag">What We Offer</span>
+    <h2 class="section-title">Our Treatments &amp; Services</h2>
+    <p class="section-sub">Comprehensive Unani therapies combining time-tested herbal medicine with modern wellness practices.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🫙</div>
+      <h3>Cupping Therapy</h3>
+      <p>Traditional Hijama (wet &amp; dry cupping) to improve blood circulation, relieve pain, and detoxify the body naturally.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌿</div>
+      <h3>Unani Herbal Medicine</h3>
+      <p>Authentic Unani formulations and herbal prescriptions tailored to your constitution and health needs.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🩺</div>
+      <h3>General Consultation</h3>
+      <p>Expert diagnosis and personalised treatment plans using classical Unani principles and modern diagnostics.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💆</div>
+      <h3>Massage &amp; Ilaj-bil-Tadbeer</h3>
+      <p>Therapeutic massages and regimental therapies for musculoskeletal disorders and chronic conditions.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌙</div>
+      <h3>Detox &amp; Cleansing</h3>
+      <p>Whole-body detoxification programmes using Unani pharmacological principles and dietary guidance.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">❤️</div>
+      <h3>Chronic Disease Care</h3>
+      <p>Long-term management of diabetes, hypertension, arthritis, and skin disorders through natural remedies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="section" id="shop">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px">
+    <div>
+      <span class="section-tag">Our Products</span>
+      <h2 class="section-title">Medicines &amp; Remedies</h2>
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" onclick="filterProducts('all',this)">All</button>
+        <button class="filter-tab" onclick="filterProducts('Unani',this)">Unani</button>
+        <button class="filter-tab" onclick="filterProducts('Herbal',this)">Herbal</button>
+        <button class="filter-tab" onclick="filterProducts('Cupping',this)">Cupping</button>
+        <button class="filter-tab" onclick="filterProducts('Supplement',this)">Supplement</button>
+      </div>
+    </div>
+    <button class="add-product-btn" onclick="openAddModal()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add Product
+    </button>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <span class="section-tag">Find Us</span>
+      <h2 class="section-title">Visit Our Clinic</h2>
+      <p class="section-sub">We're conveniently located in Chennai. Walk in or book an appointment.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#c9963a"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <h4>Address</h4>
+            <p>123 Old No 59/2, Dr. Ambedkar College Rd,<br>Near P1 Police Station, Opp. CASAGRAND MERCURY,<br>Chennai, Tamil Nadu</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#c9963a"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <h4>Phone</h4>
+            <p>+91 89258 81860</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#c9963a"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <h4>Clinic Hours</h4>
+            <p>Mon – Sat: 9:00 AM – 7:00 PM<br>Sunday: 10:00 AM – 2:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);margin-bottom:20px">Book an Appointment</h3>
+      <div class="contact-form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Full name" id="apptName">
+      </div>
+      <div class="contact-form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX" id="apptPhone">
+      </div>
+      <div class="contact-form-group">
+        <label>Service Required</label>
+        <input type="text" placeholder="e.g. Cupping Therapy, Consultation" id="apptService">
+      </div>
+      <div class="contact-form-group">
+        <label>Message</label>
+        <textarea placeholder="Any specific concerns..." id="apptMessage"></textarea>
+      </div>
+      <button class="contact-submit" onclick="submitAppointment()">📲 Send via WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">NAAFI Unani Multispeciality Clinic &amp; Cupping Therapy Center</div>
+  <p>123 Old No 59/2, Dr. Ambedkar College Rd, Chennai, Tamil Nadu</p>
+  <p style="margin-top:16px;font-size:12px;color:rgba(255,255,255,0.3)">© 2025 NAAFI Clinic. All rights reserved.</p>
+</footer>
+
+<!-- ADMIN INDICATOR -->
+<div class="admin-indicator" id="adminIndicator" onclick="openAddModal()">⚙ Admin: Add Product</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span id="toastMsg">Added to cart!</span>
+</div>
+
+<!-- CART BACKDROP -->
+<div class="cart-backdrop" id="cartBackdrop" onclick="toggleCart()"></div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span class="cart-total-label">Total Amount</span>
+      <span class="cart-total-amount" id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" onclick="openOrderModal()">Place Order →</button>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="overlay" id="productOverlay" onclick="closeProductModal(event)">
+  <div class="modal" id="productModal">
+    <button class="modal-close" onclick="closeProductModal()">✕</button>
+    <img id="pmImg" class="product-modal-img" src="" alt="">
+    <div class="product-modal-body">
+      <div class="product-modal-cat" id="pmCat"></div>
+      <h2 class="product-modal-name" id="pmName"></h2>
+      <div class="product-modal-price" id="pmPrice"></div>
+      <div class="detail-grid">
+        <div class="detail-item"><label>Dosage</label><p id="pmDosage"></p></div>
+        <div class="detail-item"><label>Quantity</label><p id="pmQty"></p></div>
+        <div class="detail-item"><label>Ingredients</label><p id="pmIngredients"></p></div>
+        <div class="detail-item"><label>Benefits</label><p id="pmBenefits"></p></div>
+      </div>
+      <div class="full-desc">
+        <label>Description</label>
+        <p id="pmDesc"></p>
+      </div>
+      <div class="modal-cart-row">
+        <div class="qty-control">
+          <button onclick="changeModalQty(-1)">−</button>
+          <span id="modalQty">1</span>
+          <button onclick="changeModalQty(1)">+</button>
+        </div>
+        <button class="btn-primary" style="flex:1" onclick="addToCartFromModal()">Add to Cart →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD PRODUCT MODAL -->
+<div class="overlay" id="addOverlay" onclick="closeAddModal(event)">
+  <div class="modal" style="max-width:600px">
+    <button class="modal-close" onclick="closeAddModal()">✕</button>
+    <div class="add-modal-header">
+      <h2>Add New Product</h2>
+      <p>Fill in the details to add a medicine or product to the store.</p>
+    </div>
+    <div class="add-modal-body">
+      <div class="form-group">
+        <label>Product Image</label>
+        <div class="img-upload-area" id="uploadArea">
+          <input type="file" accept="image/*" id="imgInput" onchange="previewImage(this)">
+          <div id="uploadPrompt">
+            <div style="font-size:32px;margin-bottom:8px">📷</div>
+            <div style="font-size:14px;font-weight:700;color:var(--green-mid)">Click to upload image</div>
+            <div style="font-size:12px;color:var(--text-light);margin-top:4px">JPG, PNG, WebP accepted</div>
+          </div>
+          <img id="imgPreview" class="img-preview" alt="">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Product Name *</label>
+          <input type="text" id="pName" placeholder="e.g. Habbe Asgand">
+        </div>
+        <div class="form-group">
+          <label>Category *</label>
+          <select id="pCat">
+            <option value="">Select category</option>
+            <option value="Unani">Unani</option>
+            <option value="Herbal">Herbal</option>
+            <option value="Cupping">Cupping</option>
+            <option value="Supplement">Supplement</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Price (₹) *</label>
+          <input type="number" id="pPrice" placeholder="299">
+        </div>
+        <div class="form-group">
+          <label>Pack Size / Quantity</label>
+          <input type="text" id="pPackSize" placeholder="e.g. 60 tablets / 100g">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Key Ingredients</label>
+        <input type="text" id="pIngredients" placeholder="e.g. Ashwagandha, Shatavari, Brahmi">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Dosage</label>
+          <input type="text" id="pDosage" placeholder="e.g. 2 tablets twice daily">
+        </div>
+        <div class="form-group">
+          <label>Key Benefits</label>
+          <input type="text" id="pBenefits" placeholder="e.g. Immunity, Strength">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Full Description *</label>
+        <textarea id="pDesc" placeholder="Describe the product, its uses, and any special instructions..."></textarea>
+      </div>
+      <button class="form-submit" onclick="saveProduct()">+ Add Product to Store</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="overlay" id="orderOverlay" onclick="closeOrderModal(event)">
+  <div class="modal order-modal" id="orderModal">
+    <button class="modal-close" onclick="closeOrderModal()">✕</button>
+    <div class="order-modal-header">
+      <h2>Place Your Order</h2>
+      <p>Fill in your details and we'll confirm your order.</p>
+    </div>
+    <div class="order-modal-body" id="orderModalBody">
+      <div class="order-summary" id="orderSummary"></div>
+      <div class="form-row" style="margin-bottom:14px">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="oName" placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label>Phone *</label>
+          <input type="tel" id="oPhone" placeholder="+91 XXXXX XXXXX">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Delivery Address *</label>
+        <textarea id="oAddress" style="height:75px" placeholder="Full delivery address..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Special Instructions</label>
+        <input type="text" id="oNotes" placeholder="Any special requests...">
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="font-size:12px;font-weight:700;color:var(--text-mid);letter-spacing:0.5px;text-transform:uppercase;display:block;margin-bottom:8px">Payment Method</label>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:14px"><input type="radio" name="payment" value="Cash on Delivery" checked> Cash on Delivery</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:14px"><input type="radio" name="payment" value="UPI / Online"> UPI / Online</label>
+        </div>
+      </div>
+      <button class="form-submit" onclick="confirmOrder()">Confirm Order →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== DATA =====
+let products = [];
+let cart = [];
+let currentProductId = null;
+let currentFilter = 'all';
+
+const DEFAULT_IMG = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZThmMGVhIi8+PHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ4IiBmaWxsPSIjMmU4YjU3IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj7wn4yfPC90ZXh0Pjx0ZXh0IHg9IjUwJSIgeT0iNjUlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzJlOGI1NyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Tm8gSW1hZ2U8L3RleHQ+PC9zdmc+';
+
+const SAMPLE_PRODUCTS = [
+  {id:1,name:'Habbe Asgand',category:'Unani',price:249,packSize:'60 tablets',ingredients:'Ashwagandha, Safed Musli, Shilajit',dosage:'2 tablets twice daily after meals',benefits:'Strength, Stamina, Vitality',desc:'A classical Unani formulation renowned for enhancing physical strength, mental clarity, and overall vitality. Made with premium ashwagandha root extract and other potent herbs.',image:''},
+  {id:2,name:'Cupping Therapy Oil',category:'Cupping',price:399,packSize:'100ml bottle',ingredients:'Olive Oil, Black Seed, Camphor, Eucalyptus',dosage:'Apply before cupping session',benefits:'Pain relief, Circulation, Detox',desc:'Specially blended oil for Hijama (cupping therapy). Enhances the effectiveness of wet and dry cupping sessions while soothing the skin.',image:''},
+  {id:3,name:'Unani Honey Blend',category:'Herbal',price:599,packSize:'500g jar',ingredients:'Raw Honey, Black Seed (Nigella), Cinnamon',dosage:'1 tablespoon daily in warm water',benefits:'Immunity, Digestion, Anti-inflammatory',desc:'Pure raw honey infused with Habbatus Sauda (black seed) and Ceylon cinnamon. A time-honoured Unani tonic for immunity and digestive health.',image:''},
+  {id:4,name:'Qurs Kafoor',category:'Unani',price:180,packSize:'30 tablets',ingredients:'Camphor, Menthol, Ajwain extract',dosage:'1 tablet thrice daily',benefits:'Respiratory, Cold & Flu relief',desc:'Traditional Unani tablet for respiratory ailments. Effective in managing cough, cold, and chest congestion through natural camphor and menthol action.',image:''},
+  {id:5,name:'Herbal Detox Tea',category:'Herbal',price:320,packSize:'100g (40 servings)',ingredients:'Senna, Licorice, Fennel, Ginger, Mint',dosage:'1 cup morning & evening',benefits:'Detox, Digestion, Weight management',desc:'A gentle cleansing herbal blend inspired by Unani detox principles. Supports liver function, promotes healthy digestion, and aids natural body cleansing.',image:''},
+  {id:6,name:'Omega Supplement',category:'Supplement',price:750,packSize:'60 softgels',ingredients:'Fish Oil, Vitamin E, Lemon Extract',dosage:'1 softgel daily with meal',benefits:'Heart health, Brain, Joints',desc:'High-quality omega-3 fatty acid supplement with natural vitamin E. Supports cardiovascular health, cognitive function, and joint flexibility.',image:''},
+];
+
+function init(){
+  const saved = localStorage.getItem('naafi_products');
+  products = saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(SAMPLE_PRODUCTS));
+  const savedCart = localStorage.getItem('naafi_cart');
+  cart = savedCart ? JSON.parse(savedCart) : [];
+  renderProducts();
+  updateCartUI();
+  document.getElementById('adminIndicator').classList.add('visible');
+}
+
+function saveProducts(){
+  localStorage.setItem('naafi_products',JSON.stringify(products));
+}
+function saveCart(){
+  localStorage.setItem('naafi_cart',JSON.stringify(cart));
+}
+
+// ===== PRODUCTS =====
+function renderProducts(){
+  const grid = document.getElementById('productsGrid');
+  const filtered = currentFilter === 'all' ? products : products.filter(p=>p.category===currentFilter);
+  if(!filtered.length){
+    grid.innerHTML = `<div class="no-products" style="grid-column:1/-1"><div style="font-size:48px">🌿</div><p>No products in this category yet.<br>Click "Add Product" to get started!</p></div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map(p=>`
+    <div class="product-card" data-id="${p.id}">
+      <div class="product-img-wrap">
+        <img src="${p.image||DEFAULT_IMG}" alt="${p.name}" loading="lazy">
+        <span class="product-badge">${p.category}</span>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">${p.category}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc-short">${p.desc}</div>
+        <div class="product-footer">
+          <div class="product-price">₹${p.price} <span>/ ${p.packSize||'unit'}</span></div>
+          <div class="product-actions">
+            <button class="btn-details" onclick="openProductModal(${p.id})">Details</button>
+            <button class="btn-add-cart" onclick="addToCart(${p.id})">+ Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterProducts(cat,el){
+  currentFilter = cat;
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderProducts();
+}
+
+// ===== PRODUCT MODAL =====
+function openProductModal(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  currentProductId = id;
+  document.getElementById('pmImg').src = p.image||DEFAULT_IMG;
+  document.getElementById('pmCat').textContent = p.category;
+  document.getElementById('pmName').textContent = p.name;
+  document.getElementById('pmPrice').textContent = '₹'+p.price+' / '+(p.packSize||'unit');
+  document.getElementById('pmDosage').textContent = p.dosage||'As directed by physician';
+  document.getElementById('pmQty').textContent = p.packSize||'—';
+  document.getElementById('pmIngredients').textContent = p.ingredients||'Natural herbs';
+  document.getElementById('pmBenefits').textContent = p.benefits||'See description';
+  document.getElementById('pmDesc').textContent = p.desc;
+  document.getElementById('modalQty').textContent = '1';
+  document.getElementById('productOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeProductModal(e){
+  if(e && e.target!==document.getElementById('productOverlay') && !e.target.classList.contains('modal-close')) return;
+  document.getElementById('productOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function changeModalQty(d){
+  const el = document.getElementById('modalQty');
+  let q = parseInt(el.textContent)+d;
+  if(q<1) q=1;
+  el.textContent = q;
+}
+function addToCartFromModal(){
+  const qty = parseInt(document.getElementById('modalQty').textContent);
+  addToCart(currentProductId, qty);
+  closeProductModal();
+}
+
+// ===== ADD PRODUCT =====
+function openAddModal(){
+  document.getElementById('addOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAddModal(e){
+  if(e && e.target!==document.getElementById('addOverlay') && !e.target.classList.contains('modal-close')) return;
+  document.getElementById('addOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+let uploadedImgData = '';
+function previewImage(input){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e){
+    uploadedImgData = e.target.result;
+    const preview = document.getElementById('imgPreview');
+    preview.src = uploadedImgData;
+    preview.style.display = 'block';
+    document.getElementById('uploadPrompt').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+function saveProduct(){
+  const name = document.getElementById('pName').value.trim();
+  const cat = document.getElementById('pCat').value;
+  const price = parseFloat(document.getElementById('pPrice').value);
+  const desc = document.getElementById('pDesc').value.trim();
+  if(!name||!cat||!price||!desc){
+    showToast('⚠ Please fill required fields'); return;
+  }
+  const newProduct = {
+    id: Date.now(),
+    name, category:cat, price,
+    packSize: document.getElementById('pPackSize').value||'',
+    ingredients: document.getElementById('pIngredients').value||'',
+    dosage: document.getElementById('pDosage').value||'As directed',
+    benefits: document.getElementById('pBenefits').value||'',
+    desc,
+    image: uploadedImgData||''
+  };
+  products.unshift(newProduct);
+  saveProducts();
+  renderProducts();
+  closeAddModal();
+  clearAddForm();
+  showToast('✓ Product added successfully!');
+}
+function clearAddForm(){
+  ['pName','pCat','pPrice','pPackSize','pIngredients','pDosage','pBenefits','pDesc'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.value = '';
+  });
+  uploadedImgData = '';
+  document.getElementById('imgPreview').style.display = 'none';
+  document.getElementById('uploadPrompt').style.display = 'block';
+  document.getElementById('imgInput').value = '';
+}
+
+// ===== CART =====
+function addToCart(id, qty=1){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  const existing = cart.find(c=>c.id===id);
+  if(existing) existing.qty += qty;
+  else cart.push({id,name:p.name,price:p.price,image:p.image||DEFAULT_IMG,qty});
+  saveCart();
+  updateCartUI();
+  showToast('✓ '+p.name+' added to cart');
+}
+function removeFromCart(id){
+  cart = cart.filter(c=>c.id!==id);
+  saveCart();
+  updateCartUI();
+  renderCart();
+}
+function changeQty(id,d){
+  const item = cart.find(c=>c.id===id);
+  if(!item) return;
+  item.qty += d;
+  if(item.qty<1){ removeFromCart(id); return; }
+  saveCart();
+  updateCartUI();
+  renderCart();
+}
+function updateCartUI(){
+  const total = cart.reduce((s,c)=>s+c.qty,0);
+  document.getElementById('cartCount').textContent = total;
+}
+function renderCart(){
+  const el = document.getElementById('cartItems');
+  const footer = document.getElementById('cartFooter');
+  if(!cart.length){
+    el.innerHTML = '<div class="cart-empty"><div style="font-size:48px">🛒</div><p style="margin-top:12px;font-weight:600">Your cart is empty</p><p style="font-size:13px;margin-top:6px">Add medicines to get started</p></div>';
+    footer.style.display = 'none';
+    return;
+  }
+  footer.style.display = 'block';
+  const total = cart.reduce((s,c)=>s+(c.price*c.qty),0);
+  el.innerHTML = cart.map(c=>`
+    <div class="cart-item">
+      <img src="${c.image}" alt="${c.name}">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${c.name}</div>
+        <div class="cart-item-price">₹${c.price} × ${c.qty} = ₹${c.price*c.qty}</div>
+        <div class="cart-item-controls">
+          <div class="qty-sm">
+            <button onclick="changeQty(${c.id},-1)">−</button>
+            <span>${c.qty}</span>
+            <button onclick="changeQty(${c.id},1)">+</button>
+          </div>
+          <button class="remove-item" onclick="removeFromCart(${c.id})">Remove</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('cartTotal').textContent = '₹'+total;
+}
+function toggleCart(){
+  const sidebar = document.getElementById('cartSidebar');
+  const backdrop = document.getElementById('cartBackdrop');
+  const isOpen = sidebar.classList.contains('open');
+  if(isOpen){
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    renderCart();
+    sidebar.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+// ===== ORDER =====
+function openOrderModal(){
+  if(!cart.length){ showToast('⚠ Cart is empty'); return; }
+  const total = cart.reduce((s,c)=>s+(c.price*c.qty),0);
+  const summary = document.getElementById('orderSummary');
+  summary.innerHTML = cart.map(c=>`
+    <div class="order-item-row"><span>${c.name} × ${c.qty}</span><span>₹${c.price*c.qty}</span></div>
+  `).join('') + `<div class="order-item-row total"><span>Total</span><span>₹${total}</span></div>`;
+  document.getElementById('orderOverlay').classList.add('open');
+  toggleCart();
+}
+function closeOrderModal(e){
+  if(e && e.target!==document.getElementById('orderOverlay') && !e.target.classList.contains('modal-close')) return;
+  document.getElementById('orderOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function confirmOrder(){
+  const name = document.getElementById('oName').value.trim();
+  const phone = document.getElementById('oPhone').value.trim();
+  const address = document.getElementById('oAddress').value.trim();
+  if(!name||!phone||!address){ showToast('⚠ Please fill all required fields'); return; }
+  const payment = document.querySelector('input[name="payment"]:checked').value;
+  const notes = document.getElementById('oNotes').value.trim();
+  const total = cart.reduce((s,c)=>s+(c.price*c.qty),0);
+  const orderRef = 'NAAFI-'+Date.now().toString().slice(-6);
+
+  // Build WhatsApp message
+  const itemLines = cart.map(c=>`  • ${c.name} × ${c.qty} = ₹${c.price*c.qty}`).join('\n');
+  const waMsg = encodeURIComponent(
+`🌿 *NEW ORDER — ${orderRef}*
+
+👤 *Customer:* ${name}
+📞 *Phone:* ${phone}
+📍 *Address:* ${address}
+${notes?'📝 *Notes:* '+notes+'\n':''}
+🛒 *Items:*
+${itemLines}
+
+💰 *Total: ₹${total}*
+💳 *Payment:* ${payment}
+
+_Order placed via NAAFI Clinic Website_`
+  );
+
+  const waURL = `https://wa.me/918925881860?text=${waMsg}`;
+
+  document.getElementById('orderModalBody').innerHTML = `
+    <div style="text-align:center;padding:20px 0">
+      <div class="success-check">✓</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--green-dark);margin-bottom:8px">Order Confirmed!</h3>
+      <p style="color:var(--text-mid);font-size:14px;margin-bottom:20px">Thank you, ${name}! Click below to send your order via WhatsApp.</p>
+      <div style="background:var(--cream);border-radius:12px;padding:16px;text-align:left;margin-bottom:24px">
+        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--text-mid)"><span>Order Ref</span><span style="font-weight:700;color:var(--green-dark)">${orderRef}</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--text-mid)"><span>Phone</span><span>${phone}</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--text-mid)"><span>Payment</span><span>${payment}</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;padding:4px 0;border-top:1px solid rgba(13,51,32,0.1);margin-top:6px;font-weight:700;color:var(--green-dark)"><span>Total</span><span>₹${total}</span></div>
+      </div>
+      <a href="${waURL}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:14px 24px;border-radius:50px;font-size:15px;font-weight:700;font-family:'Nunito',sans-serif;margin-bottom:12px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Send Order on WhatsApp
+      </a>
+      <p style="font-size:12px;color:var(--text-light)">WhatsApp will open with your full order details pre-filled for +91 89258 81860</p>
+    </div>
+  `;
+  cart = [];
+  saveCart();
+  updateCartUI();
+}
+
+// ===== APPOINTMENT =====
+function submitAppointment(){
+  const name = document.getElementById('apptName').value.trim();
+  const phone = document.getElementById('apptPhone').value.trim();
+  const service = document.getElementById('apptService').value.trim();
+  const message = document.getElementById('apptMessage').value.trim();
+  if(!name||!phone){ showToast('⚠ Name and phone required'); return; }
+  const waMsg = encodeURIComponent(
+`📅 *APPOINTMENT REQUEST — NAAFI CLINIC*
+
+👤 *Name:* ${name}
+📞 *Phone:* ${phone}
+${service?'🩺 *Service:* '+service+'\n':''}${message?'📝 *Message:* '+message+'\n':''}_Sent via NAAFI Clinic Website_`
+  );
+  window.open('https://wa.me/918925881860?text='+waMsg,'_blank');
+  showToast('✓ Redirecting to WhatsApp...');
+  ['apptName','apptPhone','apptService','apptMessage'].forEach(id=>{ document.getElementById(id).value=''; });
+}
+
+// ===== NAV =====
+function toggleMenu(){
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+document.addEventListener('click',function(e){
+  const menu = document.getElementById('mobileMenu');
+  const hamburger = document.getElementById('hamburger');
+  if(menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)){
+    menu.classList.remove('open');
+  }
+});
+
+// ===== TOAST =====
+let toastTimer;
+function showToast(msg){
+  clearTimeout(toastTimer);
+  document.getElementById('toastMsg').textContent = msg;
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  toastTimer = setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// INIT
+init();
+</script>
+</body>
+</html>
